@@ -84,16 +84,18 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                @if (Route::has('login'))
+                    <div class="links">
+                        @auth
+                            <a href="{{ route('marcas.index') }}">Marcas</a>
+                            <a href="{{ route('productos.index') }}">Productos</a>
+                            <p>Nota, no podra almacenar productos y no hay marcas creadas a las cuales asociarlos.</p>
+                            <p>por favor cree unas marcas para poder registrar productos</p>
+                        @else
+                            <p>Debe registarse para hacer uso del aplicativo</p>
+                        @endauth
+                    </div>
+                @endif
             </div>
         </div>
     </body>
