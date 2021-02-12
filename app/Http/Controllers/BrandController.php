@@ -38,6 +38,9 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre'    => 'required|min:5|max:15'
+        ]);
         $report = new Brand;
         $report->name = $request->get('nombre');
         $report->save();
@@ -78,6 +81,9 @@ class BrandController extends Controller
      */
     public function update(Request $request, $brand)
     {
+        $validatedData = $request->validate([
+            'nombre'    => 'required|min:5|max:15'
+        ]);
         $report = Brand::find($brand);
         $report->name = $request->get('nombre');
         $report->save();

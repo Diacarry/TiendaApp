@@ -42,6 +42,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre'        => 'required|min:3|max:15',
+            'size'          => 'required|min:1|max:1',
+            'fk_brand'      => 'required',
+            'observations'  => 'required|min:5|max:20',
+            'quantity'      => 'required|Numeric',
+            'shipping_date' => 'required|Date'
+        ]);
         $report = new Product;
         $report->name = $request->get('nombre');
         $report->size = $request->get('size');

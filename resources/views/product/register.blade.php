@@ -27,7 +27,7 @@
         <div class="form-group row">
             <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Diego" value="{{ old('name') }}">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Diego" value="{{ old('nombre') }}">
             </div>
         </div>
         <div class="form-group row">
@@ -50,13 +50,13 @@
         <div class="form-group row">
             <label for="observations" class="col-sm-2 col-form-label">Observaciones</label>
             <div class="col-sm-10">
-                <textarea name="observations" id="observations" cols="50" rows="2" placeholder="Calle 13 con 68" value="{{ old('observations') }}"></textarea>
+                <textarea name="observations" id="observations" cols="50" rows="2" placeholder="Informacion">{{ old('observations') }}</textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="quantity" class="col-sm-2 col-form-label">Cantidad</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="123" value="{{ old('quantity') }}">
+                <input type="text" class="form-control" id="quantity" name="quantity" placeholder="123" value="{{ old('quantity') }}">
             </div>
         </div>
         <div class="form-group row">
