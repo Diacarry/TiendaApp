@@ -1,6 +1,6 @@
 @extends('layouts.blank')
 @section('title')
-    Marcas
+    Productos
 @endsection
 @section('content')
     <div class="flex-center position-ref full-height"><br>
@@ -14,13 +14,13 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h2>Marcas</h2>
+                <h2>PRODUCTOS</h2>
             </div>
             <div class="card-body">
-            <p><a href="{{ route('marcas.create') }}" class="btn btn-success">Registrar un Marca</a></p>
+            <p><a href="{{ route('productos.create') }}" class="btn btn-success">Registrar un producto</a></p>
                 <div class="card">
                     <div class="card-header">
-                        Listado de Marcas
+                        Listado de Productos
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -28,6 +28,11 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
+                                    <th scope="col">Talla</th>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Observaciones</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Fecha Embarque</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Eliminar</th>
                                 </tr>
@@ -37,9 +42,14 @@
                                     <tr>
                                         <th>{{ $info->id }}</th>
                                         <td>{{ $info->name }}</td>
-                                        <td><a href="/marcas/{{ $info->id }}/edit" class="btn btn-warning"></a></td>
+                                        <td>{{ $info->size }}</td>
+                                        <td>{{ $info->fk_brand }}</td>
+                                        <td>{{ $info->observations }}</td>
+                                        <td>{{ $info->quantity }}</td>
+                                        <td>{{ $info->shipping_date }}</td>
+                                        <td><a href="/productos/{{ $info->id }}/edit" class="btn btn-warning"></a></td>
                                         <td>
-                                            <form action="/marcas/{{ $info->id }}" method="post">
+                                            <form action="/productos/{{ $info->id }}" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-danger"></button>
@@ -49,7 +59,7 @@
                                 @empty
                                     <tr>
                                         <div class="alert alert-danger" role="alert">
-                                            No hay marcas registrados
+                                            No hay pripietarios registrados
                                         </div>
                                     </tr>
                                 @endforelse

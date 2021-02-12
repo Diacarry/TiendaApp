@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $data = Product::paginate(5);
+        return view('product.index', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -24,7 +28,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $brands = Brand::all();
+        return view('product.register', [
+            'marcas' => $brands
+        ]);
     }
 
     /**
@@ -35,7 +42,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new Product;
+        $report->name = $request->get('nombre');
+        $report->size = $request->get('size');
+        $report->fk_brand = $request->get('fk_brand');
+        $report->observations = $request->get('observations');
+        $report->quantity = $request->get('quantity');
+        $report->shipping_date = $request->get('shipping_date');
+        $report->save();
+        return redirect('productos');
     }
 
     /**
@@ -52,12 +67,18 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \App\Brand  $brands
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($product)
     {
-        //
+        $brands = Brand::all();
+        $data = Product::find($product);
+        return view('product.edit', [
+            'data' => $data,
+            'marcas' => $brands
+        ]);
     }
 
     /**
@@ -67,9 +88,17 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $product)
     {
-        //
+        $report = Product::find($product);
+        $report->name = $request->get('nombre');
+        $report->size = $request->get('size');
+        $report->fk_brand = $request->get('fk_brand');
+        $report->observations = $request->get('observations');
+        $report->quantity = $request->get('quantity');
+        $report->shipping_date = $request->get('shipping_date');
+        $report->save();
+        return redirect('productos');
     }
 
     /**
@@ -78,8 +107,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($product)
     {
-        //
+        $registro = Product::find($product);
+        $registro->delete();
+        return redirect('productos');
     }
 }

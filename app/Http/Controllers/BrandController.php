@@ -14,7 +14,10 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $data = Brand::paginate(5);
+        return view('brand.index', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('brand.register');
     }
 
     /**
@@ -35,7 +38,10 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new Brand;
+        $report->name = $request->get('nombre');
+        $report->save();
+        return redirect('marcas');
     }
 
     /**
@@ -55,9 +61,12 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit($brand)
     {
-        //
+        $marca = Brand::find($brand);
+        return view('brand.edit', [
+            'data' => $marca
+        ]);
     }
 
     /**
@@ -67,9 +76,12 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $brand)
     {
-        //
+        $report = Brand::find($brand);
+        $report->name = $request->get('nombre');
+        $report->save();
+        return redirect('marcas');
     }
 
     /**
@@ -78,8 +90,10 @@ class BrandController extends Controller
      * @param  \App\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy($brand)
     {
-        //
+        $registro = Brand::find($brand);
+        $registro->delete();
+        return redirect('marcas');
     }
 }

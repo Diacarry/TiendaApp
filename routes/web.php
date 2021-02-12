@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource ('/marcas', 'BrandController')->except(['show']);
+Route::resource ('/productos', 'ProductController')->except(['show']);
