@@ -21,5 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource ('/marcas', 'BrandController')->except(['show']);
-Route::resource ('/productos', 'ProductController')->except(['show']);
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource ('/marcas', 'BrandController')->except(['show']);
+    Route::resource ('/productos', 'ProductController')->except(['show']);
+});
+
+Auth::routes();

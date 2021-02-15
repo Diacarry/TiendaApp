@@ -1,0 +1,41 @@
+[33mcommit 8ce19881c0e491ed78b597e34a14942b998f71af[m[33m ([m[1;36mHEAD -> [m[1;32mdataBase[m[33m, [m[1;31morigin/dataBase[m[33m)[m
+Author: Andres Carranza <diacarry@gmail.com>
+Date:   Fri Feb 12 00:47:06 2021 -0500
+
+    Control de navegacion del aplicativo
+
+[33mcommit 508a4bb2ba830aded69d6094ce81e43db526ba13[m
+Author: Andres Carranza <diacarry@gmail.com>
+Date:   Fri Feb 12 00:31:20 2021 -0500
+
+    Validacion de formularios
+
+[33mcommit 4a1562447a81400f7f71977af3e179d1cdce0d83[m
+Author: Andres Carranza <diacarry@gmail.com>
+Date:   Fri Feb 12 00:17:06 2021 -0500
+
+    Creacion de formularios para crud de modelos Marca y Productos
+
+[33mcommit 4a8d1326b2872bac52397d4d02089a779e71062f[m
+Author: Andres Carranza <diacarry@gmail.com>
+Date:   Thu Feb 11 19:57:45 2021 -0500
+
+    Creacion de modelos en Eloquent y base de datos (llaves primarias y foraneas)
+
+[33mcommit 65d0f86b515730d17457f0b15d0fed2497fafa29[m
+Author: Andres Carranza <diacarry@gmail.com>
+Date:   Thu Feb 11 18:55:53 2021 -0500
+
+    Configuracion archivo env.example
+
+[33mcommit c3d6dae2cf560445c5426a26a466cd15ff03c51a[m[33m ([m[1;32mAuth[m[33m)[m
+Author: Andres Carranza <diacarry@gmail.com>
+Date:   Thu Feb 11 18:18:41 2021 -0500
+
+    Implementacion modulo de Autenticacion
+
+[33mcommit 84875cde193556c1184f358170ca2b48089d0d4f[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Andres Carranza <diacarry@gmail.com>
+Date:   Thu Feb 11 18:07:15 2021 -0500
+
+    Inicializacion del proyecto
